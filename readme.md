@@ -1,6 +1,5 @@
 # Infinite Scroll Frontend Challenge
 Build an image viewer with infinite scrolling, similar to Pinterest.
-https://clever-euclid-4ce9a6.netlify.app
 
 ## Break down:
 There were two major components for solving this problem:
@@ -27,3 +26,5 @@ With this information and I am able to make a function called `getDocumentHeight
 Now we had to dynamically get the pixel number of the scroll height the user is currently at. To do this I created a function `getScrollTop()` that calls a conditional that returns `window.pageYOffset` (returns the number of pixels the document is currently scrolled along in the vertical axis) if it is not undefined. If it is, I called `Element.scrollTop` property which gets or sets the number of pixels that an element's content is scrolled vertically as a fallback.
 
 Now I have everything I need to create an infinite scroll. First thing to do is call  `getTwentyRandomImages()` to load the first batch of images. Then calling the event listener `window.onscroll`, I created a conditional that checks `getScrollTop()` (user scroll height) is less than `getDocumentHeight()` (max document height) then it will return. Otherwise the user has reache dthe bottom of the page and we call `getTwentyRandomImages()` again.
+
+Result: https://clever-euclid-4ce9a6.netlify.app
