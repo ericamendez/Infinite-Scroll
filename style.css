@@ -1,0 +1,21 @@
+h1 {
+  text-align: center;
+}
+
+.container{
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.image {
+  width: 100%;
+}
+
+img {
+  object-fit: cover;
+  width:230px;
+  height:230px;
+}
