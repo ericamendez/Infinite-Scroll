@@ -13,13 +13,13 @@ I put the image fetch call in a function that would give me back 20 images in a 
 This was the fun part. I had to figure out how I would know when the user reaches the end of the page. In order to do this I called for some data in DOM.
 
 `document.body`:
-*`scrollHeight` property returns the entire height of an element in pixels, including padding, but not the border, scrollbar or margin.
-*`offsetHeight` property returns the viewable height of an element in pixels, including padding, border and scrollbar, but not the margin.
+- `scrollHeight` property returns the entire height of an element in pixels, including padding, but not the border, scrollbar or margin.
+- `offsetHeight` property returns the viewable height of an element in pixels, including padding, border and scrollbar, but not the margin.
 
 `document.documentElement`:
-*`clientHeight` property returns the viewable height of an element in pixels, including padding, but not the border, scrollbar or margin.
-*`scrollHeight` property returns the entire height of an element in pixels, including padding, but not the border, scrollbar or margin.
-*`offsetHeight` property returns the viewable height of an element in pixels, including padding, border and scrollbar, but not the margin.
+- `clientHeight` property returns the viewable height of an element in pixels, including padding, but not the border, scrollbar or margin.
+- `scrollHeight` property returns the entire height of an element in pixels, including padding, but not the border, scrollbar or margin.
+- `offsetHeight` property returns the viewable height of an element in pixels, including padding, border and scrollbar, but not the margin.
 
 With this information and I am looking for the height of the page and will use `math.max` in order to pick out the biggest pixel number. This will be the document height and therefore the scrolling number we will have to reach to load more images.
 
