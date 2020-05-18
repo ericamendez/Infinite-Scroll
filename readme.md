@@ -12,17 +12,17 @@ I put the image fetch call in a function that would give me back 20 images in a 
 **-Load more images when user scrolls to the bottom of the page**
 This was the fun part. I had to figure out how I would know when the user reaches the end of the page. In order to do this I called for some data in DOM.
 
-**document.body:**
-**scrollHeight** property returns the entire height of an element in pixels, including padding, but not the border, scrollbar or margin.
-**offsetHeight** property returns the viewable height of an element in pixels, including padding, border and scrollbar, but not the margin.
+`document.body`:
+*`scrollHeight` property returns the entire height of an element in pixels, including padding, but not the border, scrollbar or margin.
+*`offsetHeight` property returns the viewable height of an element in pixels, including padding, border and scrollbar, but not the margin.
 
-**document.documentElement:**
-**clientHeight** property returns the viewable height of an element in pixels, including padding, but not the border, scrollbar or margin.
-**scrollHeight** property returns the entire height of an element in pixels, including padding, but not the border, scrollbar or margin.
-**offsetHeight** property returns the viewable height of an element in pixels, including padding, border and scrollbar, but not the margin.
+`document.documentElement`:
+*`clientHeight` property returns the viewable height of an element in pixels, including padding, but not the border, scrollbar or margin.
+*`scrollHeight` property returns the entire height of an element in pixels, including padding, but not the border, scrollbar or margin.
+*`offsetHeight` property returns the viewable height of an element in pixels, including padding, border and scrollbar, but not the margin.
 
-With this information and I am looking for the height of the page and will use math.max in order to pick out the biggest pixel number. This will be the document height and therefore the scrolling number we will have to reach to load more images.
+With this information and I am looking for the height of the page and will use `math.max` in order to pick out the biggest pixel number. This will be the document height and therefore the scrolling number we will have to reach to load more images.
 
-Now we had to dynamically get the pixel number of where the user is currently at. To do this I can call on **window.pageYOffset** which returns the number of pixels the document is currently scrolled along the vertical axis. I put this in a conditional to make sure return window.pageYOffset only if it is not undefined. If it is undefined I called Element.scrollTop property which gets or sets the number of pixels that an element's content is scrolled vertically as a fallback.
+Now we had to dynamically get the pixel number of where the user is currently at. To do this I can call on `window.pageYOffset` which returns the number of pixels the document is currently scrolled along the vertical axis. I put this in a conditional to make sure return `window.pageYOffset` only if it is not undefined. If it is undefined I called `Element.scrollTop` property which gets or sets the number of pixels that an element's content is scrolled vertically as a fallback.
 
 Now from I have everything I need to put everything together. First thing I did was call the get images function to load the first batch of images. Then calling the event listener window.onscroll, I created a conditional that checks if the scroll pixel number the user is equal to the max height of the page everytime the user scrolls. When this condition is true it will then call the get image function again.
