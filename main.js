@@ -16,13 +16,10 @@ const getTwentyRandomImages = () => {
   )
     .then((response) => response.json())
     .then((data) => {
-      let urlArray = data.map(({urls}) => urls.small)
-      console.log(urlArray)
-
-      urlArray.forEach((url) => {
-        const img = new Image
-        img.src = url
-        img.className = "image"
+      data.forEach(({ urls }) => {
+        const img = new Image()
+        img.src = urls.small
+        img.className = 'image'
         container.appendChild(img)
       })
     })
