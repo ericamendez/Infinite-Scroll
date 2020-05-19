@@ -1,4 +1,4 @@
-# Infinite Scroll Frontend Challenge
+# Infinite Scroll Frontend Interview Question
 Build an image viewer with infinite scrolling, similar to Pinterest.
 
 ## Break down:
